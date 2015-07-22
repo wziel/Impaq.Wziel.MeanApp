@@ -1,0 +1,46 @@
+﻿<div>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/forms.css" />
+
+    <form novalidate class="form-horizontal" ng-submit="signup()">
+        <h1 class=" form-signin-heading page-header col-xs-offset-2">Sign up</h1>
+        <fieldset ng-disabled="processing">
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Username</label>
+                <div class="col-xs-10">
+                    <input type="text" ng-model="username" placeholder="Username" class="form-control" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Password</label>
+                <div class="col-xs-10">
+                    <input type="password" ng-model="password" placeholder="Password" class="form-control" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">First Name</label>
+                <div class="col-xs-10">
+                    <input type="text" ng-model="firstName" placeholder="First Name" class="form-control" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Last Name</label>
+                <div class="col-xs-10">
+                    <input type="text" ng-model="lastName" placeholder="Last Name" class="form-control" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Email</label>
+                <div class="col-xs-10">
+                    <input type="email" ng-model="email" placeholder="Email Address" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-xs-offset-2" ng-show="processing"><h4>Signing up...</h4></div>
+            <div class="col-xs-offset-2" ng-show="failed"><h4>Signing up failed. Try again.</h4></div>
+            <div class="form-group">
+                <div class="col-xs-2 col-xs-offset-2">
+                    <button type="submit" class="btn btn-primary form-control">Submit</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,11 @@
+﻿form input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+    background-color: rgb(255, 180, 180); 
+}
+
+form input.ng-valid.ng-touched, textarea.ng-valid.ng-touched {
+    background-color: rgb(180, 255, 180);
+}
+
+form error-msg {
+    background-color: rgb(255, 180, 180);
+}

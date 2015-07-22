@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>My Angular App!</title>
+    <link href="/stylesheets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
+
+    <script src="/javascripts/angular.js"></script>
+    <script src="/javascripts/angular-ui-router.js"></script>
+    <script src="/javascripts/app.js"></script>
+    <script src="/javascripts/routes.js"></script>
+
+    <script src="/javascripts/controllers/home-controller.js"></script>
+    <script src="/javascripts/controllers/posts-controller.js"></script>
+    <script src="/javascripts/controllers/posts-create-controller.js"></script>
+    <script src="/javascripts/controllers/login-controller.js"></script>
+    <script src="/javascripts/controllers/signup-controller.js"></script>
+    <script src="/javascripts/controllers/logout-controller.js"></script>
+    <script src="/javascripts/controllers/account-controller.js"></script>
+
+    <script src="/javascripts/services/posts-factory.js"></script>
+    <script src="/javascripts/services/users-factory.js"></script>
+
+    <script src="/javascripts/directives/navbar-directive.js"></script>
+    <script src="/javascripts/directives/pagination-directive.js"></script>
+    <script src="/javascripts/directives/like-button-directive.js"></script>
+    <script src="/javascripts/directives/delete-button-directive.js"></script>
+    <script src="/javascripts/directives/validators/compare-validator.js"></script>
+</head>
+<body ng-app="flapperNews">
+    <navbar></navbar>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <ui-view></ui-view>
+        </div>
+    </div>
+</body>
+</html>

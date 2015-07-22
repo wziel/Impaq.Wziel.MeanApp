@@ -1,0 +1,20 @@
+﻿<div class="text-center" ng-show="{{pageCount > 1}}">
+    <ul>
+        <li>
+            <a ng-href="{{urlPrefiks + 1}}"><<</a>
+        </li>
+        <li>
+            <a ng-href="{{urlPrefiks + (pageCurr > 1 ? pageCurr - 1 : 1)}}"><</a>
+        </li>
+        <li ng-repeat="num in numbers" ng-class="{ active : pageCurr === {{num}}}">
+            <a ng-href="{{urlPrefiks + num}}">{{num}} </a>
+        </li>
+        <li>
+            <a ng-href="{{urlPrefiks + (pageCurr < pageCount ? pageCurr + 1 : pageCount)}}">></a>
+        </li>
+        <li>
+            <a ng-href="{{urlPrefiks + pageCount}}">>></a>
+        </li>
+    </ul>
+</div>
+

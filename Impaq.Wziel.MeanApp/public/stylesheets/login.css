@@ -1,0 +1,14 @@
+﻿
+.waiting {
+    font-size: 15px;
+    color: yellow;
+}
+
+.negative {
+    font-size: 15px;
+    color: red;
+}
+
+.message {
+    padding-bottom: 10px
+}

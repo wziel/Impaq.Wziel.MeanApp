@@ -1,0 +1,95 @@
+﻿<div>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/account.css"/>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/forms.css"/>
+
+    <form id="data-display" novalidate class="form-horizontal">
+        <h1 class="col-xs-offset-2 col-xs-10 page-header">Your account</h1>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Name </label>
+            <div class="col-xs-10">
+                <span class="col-xs-10 dataDisplay">{{user.firstName + ' ' + user.lastName}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Login </label>
+            <div class="col-xs-10">
+                <span class="col-xs-10 dataDisplay">{{user.username}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Email </label>
+            <div class="col-xs-10">
+                <span class="col-xs-10 dataDisplay">{{user.email}}</span>
+            </div>
+        </div>
+    </form>
+
+    <form id="data-form" name="dataForm" class="form-horizontal" ng-submit="submit_data()" novalidate>
+        <h1 class="col-xs-offset-2 page-header">Edit your data</h1>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">First Name</label>
+            <div class="col-xs-10">
+                <input class="form-control" type="text" placeholder="{{user.firstName}}" ng-focus="resetData()" ng-model="firstName" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Last Name</label>
+            <div class="col-xs-10">
+                <input class="form-control" type="text" placeholder="{{user.lastName}}" ng-focus="resetData()" ng-model="lastName" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Email</label>
+            <div class="col-xs-10">
+                <input class="form-control" type="email" placeholder="{{user.email}}" ng-focus="resetData()" ng-model="email" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-2 col-xs-offset-2">
+                <button type="submit" class="btn btn-primary form-control" ng-click="resetForm(dataForm)">Submit</button>
+            </div>
+            <div class="col-xs-8">
+                <span ng-show="data_fail" class="negative glyphicon glyphicon-remove"></span>
+                <span ng-show="data_fail" class="negative">Data failed to change. Try again.</span>
+                <span ng-show="data_succ" class="positive glyphicon glyphicon-ok"></span>
+                <span ng-show="data_succ" class="positive">Data successfully changed.</span>
+            </div>
+        </div>
+    </form>
+
+    <form id="pass-form" name="passForm" class="form-horizontal" ng-submit="submit_pass()" novalidate>
+        <h1 class="col-xs-offset-2 page-header">Change password</h1>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Old</label>
+            <div class="col-xs-10">
+                <input class="form-control" type="password" placeholder="Old password" ng-focus="resetPass()" ng-model="password.old" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2 control-label">New</label>
+            <div class="col-xs-10">
+                <input class="form-control" type="password" placeholder="New password" ng-focus="resetPass()" ng-model="password.new1" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Repeat</label>
+            <div class="col-xs-10">
+                <input class="form-control" type="password" placeholder="Repeat new password" ng-focus="resetPass()" ng-model="password.new2" compare="password.new1" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-2 col-xs-offset-2">
+                <button type="submit" class="btn btn-primary form-control" ng-click="resetForm(passForm)">Submit</button>
+            </div>
+            <div class="col-xs-8">
+                <span ng-show="password.fail" class="negative glyphicon glyphicon-remove"></span>
+                <span ng-show="password.fail" class="negative">Password failed to change. Try again.</span>
+                <span ng-show="password.succ" class="positive glyphicon glyphicon-ok"></span>
+                <span ng-show="password.succ" class="positive">Password successfully changed.</span>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,35 @@
+﻿1. Przygotowanie do uruchomienia:
+	- zainstalować node
+	- zainstalować mongoDB
+	- pobrać wszystkie moduły node (komenda "npm install" w root katalogu projektu)
+2. Uruchomienie aplikacji:
+	- uruchomić instancję mongoDB na localhoście
+	- uruchomić aplikację przez visual studio w chrome
+3. Tworzenie konta administratora w aplikacji:
+	- uruchomić aplikację
+	- z menu nawigacyjnego wybrać Sign up
+	- utworzyć konto, kliknąć "submit" (dla przykładu username: "admin")
+	- uruchomić konsolę mongo - mongo.exe
+	- przełączyć się na bazę z której korzysta aplikacja:
+		use news
+	- nadać utworzonemu użytkownikowi prawa admina ręcznie:
+		db.users.update({username: "admin"}, {$set: {rights: "admin"}})
+	- powinien pojawić się komunikat 
+		WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+	- po ponownym zalogowaniu, użytkownik ma prawa admina, może tworzyć nowe posty, usuwać posty i komentarze
+4. Testowanie:
+	- testy są przeprowadzane za pomocą Karma i Protractor.
+	- uruchomienie unit testów:
+		- w konsoli z poziomu katalogu 'tests' wpisać:
+			karma start
+	- uruchomienie testów e2e:
+		- uruchomić aplikację na porcie 9999.
+		- w konsoli z poziomu roota projektu wpisać:
+			webdriver-manager start
+		- w drugiej konsoli z poziomu 'tests/e2e' wpisać:
+			protractor protractor-conf.js
+	- testy zakładają że w bazie istnieją użytkownicy (hasło: "admin", login: "admin" rights:"admin") i (hasło: "test", login:"test")
+	- testy zakładają że baza postów jest niepusta
+5. Uwagi ogólne:
+	- aplikacja łączy się z mongoDB na localhoscie, korzystajac z db o nazwie news: 'mongodb://localhost/news'
+	- w bazie znajdują się trzy kolekcje: users, posts, comments

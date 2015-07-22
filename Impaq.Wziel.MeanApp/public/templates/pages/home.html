@@ -1,0 +1,37 @@
+<div>
+    <link rel="stylesheet" type="text/css" href="stylesheets/home.css" />
+
+    <div class="page-header">
+        <h1>News archive</h1>
+    </div>
+    <table class='table table-striped'>
+        <tr class="dataRow" ng-repeat="post in posts" style="padding-bottom:20px;">
+            <td>
+                <div class="col-xs-4 small">
+                    <span>{{getDateFrom(post)}}</span>
+                </div>
+                <div class="col-xs-offset-6 col-xs-1 small">
+                    <delete-button ng-show="user.rights === 'admin'" action="delete(post)"></delete-button>
+                </div>
+                
+                <like-button class="col-xs-1 small" interactive="user" count="post.upvotes" liked="post.upvoted"
+                             like="incrementUpvotes(post)" unlike="decrementUpvotes(post)"></like-button>
+                <div class="col-xs-12">
+                    <h2>
+                        <span>{{post.title | limitTo: 30}}</span>
+                        <span ng-show="{{post.title.length > 30}}">...</span>
+                    </h2>
+                </div>
+                <div class="col-xs-12">
+                    <span>{{post.body | limitTo: 200}}</span>
+                    <span ng-show="{{post.body.length > 200}}">...</span>
+                </div>
+                <div class="col-xs-12 small">
+                    <a ng-href="#/posts/{{post._id}}">See details...</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <pagination curr="pageCurr" count="{{pagesCount}}" max="{{maxPages}}" urlprefiks="#/home/"></pagination>
+</div>

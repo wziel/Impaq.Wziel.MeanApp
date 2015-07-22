@@ -1,0 +1,12 @@
+﻿.dataRow {
+    height: 55px;
+}
+
+.liked-hand {
+    color: rgb(105, 113, 255);
+}
+
+.btn-like, .btn-delete {
+    background-color: transparent;
+    padding: 0px 0px;
+}

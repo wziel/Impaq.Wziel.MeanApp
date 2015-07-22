@@ -1,0 +1,14 @@
+﻿textarea {
+    resize: none;
+    margin-top: 15px;
+}
+
+.positive {
+    font-size: 15px;
+    color: green;
+}
+
+.negative {
+    font-size: 15px;
+    color: red;
+}

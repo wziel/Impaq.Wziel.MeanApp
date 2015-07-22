@@ -1,0 +1,54 @@
+<div>
+    <link rel="stylesheet" type="text/css" href="stylesheets/posts.css" />
+
+    <div class="page-header">
+        <div>
+            <div class="col-xs-4 small date-display">
+                <span>{{getDateFrom(post)}}</span>
+            </div>
+            <div class="col-xs-offset-6 col-xs-1 small">
+                <delete-button ng-show="user.rights === 'admin'" action="deletePost()"></delete-button>
+            </div>
+
+            <like-button class="col-xs-1 small" interactive="user" count="post.upvotes" liked="post.upvoted"
+                         like="incrementUpvotesForPost()" unlike="decrementUpvotesForPost()"></like-button>
+        </div>
+        <h1>
+            {{post.title}}
+        </h1>
+        <div>
+            <span>{{post.body}}</span>
+        </div>
+    </div>
+
+    <h2 ng-hide="post.comments">No comments available</h2>
+
+    <div ng-show="post.comments" ng-repeat="comment in post.comments" class="commentBox">
+        <div>
+            <div>
+                {{comment.body}}
+            </div>
+            <div class="commentFooter">
+                <div class="col-xs-7 commentAuthor">
+                    <span>- by {{comment.author}}, </span>
+                    <span>on {{getDateFrom(comment)}} </span>
+                </div>
+                <div class="col-xs-offset-3 col-xs-1 small">
+                    <delete-button ng-show="user.rights === 'admin'" action="delete(comment)"></delete-button>
+                </div>
+                <like-button class="col-xs-1 small" interactive="user" count="comment.upvotes" liked="comment.upvoted"
+                             like="incrementUpvotes(comment)" unlike="decrementUpvotes(comment)"></like-button>
+            </div>
+        </div>
+    </div>
+
+    <pagination curr="pageCurr" count="{{pagesCount}}" max="{{maxPages}}" urlprefiks="#/posts/{{post._id}}/"></pagination>
+
+    <form novalidate ng-show="user" ng-submit="addComment()" class="createCommentDiv">
+        <h3>Add a new comment</h3>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Comment" ng-model="body" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+</div>

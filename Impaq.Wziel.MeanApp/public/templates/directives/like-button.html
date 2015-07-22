@@ -1,0 +1,14 @@
+﻿<div>
+    <span ng-hide="interactive">
+        <span class='glyphicon glyphicon-thumbs-up'></span>
+    </span>
+    <span ng-show="interactive">
+        <button ng-hide="liked" class="btn btn-like" ng-click="like()">
+            <span class='glyphicon glyphicon-thumbs-up unliked-hand'></span>
+        </button>
+        <button ng-show="liked" class="btn btn-like" ng-click="unlike()">
+            <span class='glyphicon glyphicon-thumbs-up liked-hand'></span>
+        </button>
+    </span>
+    <span>{{count}}</span>
+</div>

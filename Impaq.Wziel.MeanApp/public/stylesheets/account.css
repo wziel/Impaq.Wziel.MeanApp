@@ -1,0 +1,13 @@
+﻿.dataDisplay {
+    font-size:20px
+}
+
+.positive {
+    font-size: 15px;
+    color: green;
+}
+
+.negative {
+    font-size: 15px;
+    color: red;
+}
